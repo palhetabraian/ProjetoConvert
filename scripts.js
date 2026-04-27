@@ -45,12 +45,13 @@ function convertCurrency(amount, price, symbol) {
         // Calcula o total
         let total = amount * price;
 
-        // Formatar o valor total.
-        total = formatCurrencyBRL(total).replace('R$', '');
-
-        if (isNan(total)) {
+        // Verifica se o resultado nao é um numero
+        if (isNaN(total)) {
             return alert('Por favor, digite o valor corretamente para converter.');
         }
+
+        // Formatar o valor total.
+        total = formatCurrencyBRL(total).replace('R$', '');
 
         //Exibe o resultado total.
         result.textContent = `${total} Reais`;
